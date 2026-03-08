@@ -2,7 +2,8 @@
 
 Welcome to my hands-on cybersecurity portfolio. This repository documents my journey through a 4-project intensive lab designed to build real-world SOC (Security Operations Center) skills.
 
-**Inspired by:** The Social Dork (Royon)
+**Inspired by:** [@thesocialdork1133
+](https://www.youtube.com/@thesocialdork1133)
 
 ---
 
