@@ -2,8 +2,9 @@
 
 Welcome to my hands-on cybersecurity portfolio. This repository documents my journey through a 4-project intensive lab designed to build real-world SOC (Security Operations Center) skills.
 
-**Inspired by:** [@thesocialdork1133
-](https://www.youtube.com/@thesocialdork1133)
+**Created by:** [Muhammad Aqib Tayyab](https://www.linkedin.com/in/muhammad-aqib-tayyab-ethical-hacker/)
+
+**Inspired by:** [The Social Dork (Royden Rahul Rebello)](https://www.youtube.com/@thesocialdork1133)
 
 ---
 
@@ -26,33 +27,34 @@ Welcome to my hands-on cybersecurity portfolio. This repository documents my jou
 ## Project 1: SafeLine Web Application Firewall (WAF) Deployment
 
 ### **Objective**
-To implement a defense-in-depth strategy by deploying an AI-powered WAF to protect a vulnerable web application from common OWASP Top 10 threats.
+To implement a defense-in-depth strategy by deploying an AI-powered WAF as a reverse proxy to protect a vulnerable web application from common OWASP Top 10 threats.
 
 ### **Lab Architecture**
-* **Attacker:** Kali Linux
-* **Defender:** Ubuntu 25.10 (hosting SafeLine WAF)
-* **Target:** DVWA (Damn Vulnerable Web Application) running in a Docker container
+* **Attacker:** Kali Linux (Offensive testing).
+* **Defender:** Ubuntu 25.10 (Hosting SafeLine WAF).
+* **Target:** DVWA (Damn Vulnerable Web Application) running in a Docker container.
 
-### **Step-by-Step Execution**
-1.  **Environment Setup:** Configured a virtual network in VirtualBox using a **Bridged Adapter** to allow seamless communication between Kali and Ubuntu.
-2.  **WAF Installation:** Deployed Chaitin SafeLine WAF via Docker on the Ubuntu machine.
-3.  **Victim App Deployment:** Launched the DVWA container on port 80.
-4.  **Reverse Proxy Configuration:** Configured SafeLine to listen on port **8080** and forward clean traffic to the DVWA container.
-5.  **Attack Simulation:** Used `curl` from my Kali machine to execute a SQL Injection payload: `id=1' OR '1'='1`.
+### **Step-by-Step Technical Execution**
+1.  **Network Plumbing:** Configured a virtual network in VirtualBox using a **Bridged Adapter**. This allowed the VMs to communicate as independent nodes on the physical local network.
+2.  **System Hardening:** Resolved Ubuntu 25.10 driver issues by switching to standard GNU tools to properly install **VirtualBox Guest Additions**.
+3.  **WAF Deployment:** Installed Chaitin SafeLine WAF via Docker. Configured the management console to act as a **Reverse Proxy**, listening on port **8080** and forwarding "clean" traffic to the application on port **80**.
+4.  **Victim App Launch:** Deployed the DVWA container: `sudo docker run --rm -it -p 80:80 vulnerables/web-dvwa`.
+5.  **Attack Simulation:** Executed a SQL Injection attack from Kali using `curl`: 
+    `curl "http://<Ubuntu-IP>:8080/?id=1'%20OR%20'1'='1"`.
 
 ### **Key Outcomes**
-* **Interception:** The WAF successfully detected the malicious SQL syntax using its intelligent detection engine.
-* **Blocking:** SafeLine returned a **403 Forbidden** status and a custom block page, preventing the attack from reaching the database.
-* **Visibility:** Confirmed the attack signature and Attacker IP in the SafeLine management dashboard.
+* **Real-time Interception:** The WAF's intelligent engine detected the malicious SQL syntax and returned a **403 Forbidden** status.
+* **Prevention:** The attack was stopped at the perimeter; the vulnerable database was never reached.
+* **Forensic Visibility:** Logged and analyzed the attack signature, timestamp, and Attacker IP in the SafeLine Dashboard.
 
 ---
 
 ## Project 2: Wazuh SIEM Implementation (In Progress...)
-*Currently deploying the Wazuh Indexer and Server to establish centralized security monitoring.*
+*Currently deploying the Wazuh Indexer, Server, and Dashboard to establish centralized security monitoring and File Integrity Monitoring (FIM).*
 
 ---
 
-### Contact & Networking
+### 📞 Contact & Networking
 **Open to SOC Analyst and Cybersecurity internships. Let's connect!**
 * **LinkedIn:** [Muhammad Aqib Tayyab](https://www.linkedin.com/in/muhammad-aqib-tayyab-ethical-hacker/)
 * **YouTube:** [MuhammadAqibTayyab](https://www.youtube.com/@MuhammadAqibTayyab)
