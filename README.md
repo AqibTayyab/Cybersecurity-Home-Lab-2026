@@ -1,4 +1,4 @@
-# Cybersecurity Home Lab Portfolio 2026
+# Cybersecurity Home Lab 1 Portfolio 2026
 
 Welcome to my hands-on cybersecurity portfolio. This repository documents my journey through a 4-project intensive lab designed to build real-world SOC (Security Operations Center) skills.
 
